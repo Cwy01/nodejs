@@ -1,0 +1,3 @@
+vue init webpack vue-bootstrap
+cd vue-bootstrap
+npm install jquery
