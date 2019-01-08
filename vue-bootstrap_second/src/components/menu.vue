@@ -59,5 +59,5 @@ export default{
 }
 </script>
 <style>
-body { padding-top: 70px; }
+body { padding-top: 70px; padding-bottom: 50px; }
 </style>
