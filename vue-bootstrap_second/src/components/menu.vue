@@ -1,63 +1,42 @@
 <template>
-		<div class="row">
-			<div class="col-sm-6 col-md-3">
-				<div class="thumbnail">
-					<img src="../../static/images/test.png" alt="...">
-					<div class="caption">
-						<h3>Thumbnail label</h3>
-						<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
-						<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-6 col-md-3">
-				<div class="thumbnail">
-					<img src="../../static/images/test.png" alt="...">
-					<div class="caption">
-						<h3>Thumbnail label</h3>
-						<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
-						<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-6 col-md-3">
-				<div class="thumbnail">
-					<img src="../../static/images/test.png" alt="...">
-					<div class="caption">
-						<h3>Thumbnail label</h3>
-						<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
-						<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-6 col-md-3">
-				<div class="thumbnail">
-					<img src="../../static/images/test.png" alt="...">
-					<div class="caption">
-						<h3>Thumbnail label</h3>
-						<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
-						<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-6 col-md-3">
-				<div class="thumbnail">
-					<img src="../../static/images/test.png" alt="...">
-					<div class="caption">
-						<h3>Thumbnail label</h3>
-						<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
-						<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-					</div>
-				</div>
-			</div>
-		</div>
-		
+	<div>
+		<ul class="nav nav-pills nav-stacked">
+			<li role="presentation" v-for="menu in menus">
+				<router-link :to="menu.href">{{menu.name}}</router-link>
+			</li>	
+		</ul>	
+	</div>
 </template>
 <script>
 export default{
-   
+    name : "Menu",
+    data(){
+        return {
+            menus:[{
+                name:"Home",
+                href:"/home",
+                childs:[]
+            },{
+                name:"Library",
+                href:"/home/library",
+                childs:[]
+            },{
+                name:"Data",
+                href:"/home/library/data",
+                childs:[]
+            },{
+                name:"jq",
+                href:"/jq",
+                childs:[]
+            },{
+                name:"Index",
+                href:"/",
+                childs:[]
+            }]
+        }
+    }
 }
 </script>
-<style>
-body { padding-top: 70px; padding-bottom: 50px; }
+<style >
+body { padding-top: 70px;}
 </style>

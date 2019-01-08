@@ -1,12 +1,16 @@
 <template>
-  <div id="app">
-   <SystemHeader></SystemHeader>
-  <!-- <router-view></router-view> -->
-
-	   <SystemMenu></SystemMenu>
-
-   <SystemFooter></SystemFooter>
-  </div>
+	<div id="app">
+		<SystemHeader></SystemHeader>
+			<div class="row">
+				<div class="col-sm-2">
+					<SystemMenu></SystemMenu>
+				</div>
+				<div class="col-sm-10">  
+					<router-view></router-view>
+				</div>	
+			</div>	
+		<SystemFooter></SystemFooter>
+	</div>
 </template>
 
 <script>
