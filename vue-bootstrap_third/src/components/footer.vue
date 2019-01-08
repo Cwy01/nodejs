@@ -5,7 +5,9 @@
 		<div class="col-xs-2">	
 			<div class="navbar-header">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a class="text-center" href="#"> Copy Right @ 2019 </a></li>
+					<li role="presentation" v-for="menu in menus">
+						<router-link :to="menu.href" class="text-center">{{menu.name}}</router-link>
+					</li>
 				</ul>
 			</div>
 		</div>
@@ -16,7 +18,15 @@
 
 <script>
 export default{
-
+	name : "Link",
+    data(){
+        return {
+            menus:[{
+                name:" Copy Right @ 2019 ",
+                href:"/home"
+            }]
+        }
+    }
 }
 </script>
 <style>
