@@ -12,20 +12,20 @@
 				<!-- On rows -->
 				<thead>
 					<tr>
-						<td role="presentation" v-for="thead in theads">
-							<router-link :to="thead.href">{{thead.name}}</router-link>
+						<td role="presentation" v-for="theads in tbodylist">
+							<router-link :to="theads.thref">{{theads.thead}}</router-link>
 						</td>
 					</tr>
 				</thead>
+				
 				<tbody>
-					
-					<tr class="success" v-for="tbodys in tbodylist">
+					<tr class="" v-for="tbodys in tbodylist">
 						<td role="presentation" v-for="child in tbodys.childs">
 							<router-link :to="child.href">{{child.name}}</router-link>
 						</td>
 					</tr>
-
 				</tbody>
+				
 			</table>
 		</div>
 			
@@ -51,33 +51,10 @@ export default {
                 href:"/home/library/data",
                 childs:[]
             }],
-			theads:[{
-                name:"Home1",
-                href:"/home",
-                childs:[]
-            },
-			{
-                name:"Home2",
-                href:"/home",
-                childs:[]
-            },
-			{
-                name:"Home3",
-                href:"/home",
-                childs:[]
-            },
-			{
-                name:"Home4",
-                href:"/home",
-                childs:[]
-            },
-			{
-                name:"Home5",
-                href:"/home",
-                childs:[]
-            }],
 			
 			tbodylist:[{
+				thead:"HeadOne",
+                thref:"/HeadOne",
                 name:"Home1",
                 href:"/home",
                 childs:[{
@@ -102,6 +79,8 @@ export default {
 				}]
             },
 			{
+				thead:"HeadOne",
+                thref:"/HeadOne",
                 name:"Home1",
                 href:"/home",
                 childs:[{
@@ -126,6 +105,8 @@ export default {
 				}]
             },
 			{
+				thead:"HeadOne",
+                thref:"/HeadOne",
                 name:"Home1",
                 href:"/home",
                 childs:[{
@@ -150,6 +131,8 @@ export default {
 				}]
             },
 			{
+				thead:"HeadOne",
+                thref:"/HeadOne",
                 name:"Home1",
                 href:"/home",
                 childs:[{
@@ -174,6 +157,8 @@ export default {
 				}]
             },
 			{
+				thead:"HeadOne",
+                thref:"/HeadOne",
                 name:"Home1",
                 href:"/home",
                 childs:[{
