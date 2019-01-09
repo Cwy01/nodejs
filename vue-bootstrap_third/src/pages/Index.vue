@@ -6,7 +6,15 @@
 				<router-link :to="menu.href">{{menu.name}}</router-link>
 			</li>
 		</ol>
-		<h3>Demo Index</h3>
+		<h3>Index<small>/index</small></h3>
+		
+			<div class="btn-group" role="group" aria-label="123">
+				<a class="btn btn-default"  @click="toAdd"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> 添加</a> 
+				<a class="btn btn-default"  @click="toSave"><span class="glyphicon glyphicon-repeat" aria-hidden="true"></span> 修改</a> 
+				<a class="btn btn-default"  @click="toRemove"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> 删除</a>
+				<a class="btn btn-default"  @click="toUpdate"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> 更新</a>
+			</div>
+		<hr/>
 		<div class="table-responsive">
 			<table class="table table-striped table-bordered table-hover table-condensed">
 				<!-- On rows -->
@@ -20,7 +28,7 @@
 				
 				<tbody>
 					<tr class="" v-for="tbodys in tbodylist">
-						<td role="presentation" v-for="child in tbodys.childs">
+						<td role="presentation" v-for="child in tbodys.childs"  v-if="tbodys.childs">
 							<router-link :to="child.href">{{child.name}}</router-link>
 						</td>
 					</tr>
@@ -55,136 +63,108 @@ export default {
 			tbodylist:[{
 				thead:"HeadOne",
                 thref:"/HeadOne",
-                name:"Home1",
+                name:"HomeOne",
                 href:"/home",
                 childs:[{
-					name:"Home1",
+					name:"HomeOne",
 					href:"/home"
 				},
 				{
-					name:"Home1",
+					name:"Home2",
 					href:"/home"
 				},
 				{
-					name:"Home1",
+					name:"Home3",
 					href:"/home"
 				},
 				{
-					name:"Home1",
-					href:"/home"
-				},
-				{
-					name:"Home1",
+					name:"Home4",
 					href:"/home"
 				}]
             },
 			{
-				thead:"HeadOne",
-                thref:"/HeadOne",
-                name:"Home1",
+				thead:"HeadTwo",
+                thref:"/HeadTwo",
+                name:"Two1",
                 href:"/home",
                 childs:[{
-					name:"Home1",
+					name:"Two1",
 					href:"/home"
 				},
 				{
-					name:"Home1",
+					name:"Two2",
 					href:"/home"
 				},
 				{
-					name:"Home1",
+					name:"Two3",
 					href:"/home"
 				},
 				{
-					name:"Home1",
-					href:"/home"
-				},
-				{
-					name:"Home1",
+					name:"Two4",
 					href:"/home"
 				}]
             },
 			{
-				thead:"HeadOne",
+				thead:"Head3",
                 thref:"/HeadOne",
                 name:"Home1",
                 href:"/home",
                 childs:[{
-					name:"Home1",
+					name:"Three1",
 					href:"/home"
 				},
 				{
-					name:"Home1",
+					name:"Three2",
 					href:"/home"
 				},
 				{
-					name:"Home1",
+					name:"Three3",
 					href:"/home"
 				},
 				{
-					name:"Home1",
-					href:"/home"
-				},
-				{
-					name:"Home1",
+					name:"Three4",
 					href:"/home"
 				}]
             },
 			{
-				thead:"HeadOne",
+				thead:"Head4",
                 thref:"/HeadOne",
                 name:"Home1",
                 href:"/home",
                 childs:[{
-					name:"Home1",
+					name:"four1",
 					href:"/home"
 				},
 				{
-					name:"Home1",
+					name:"four2",
 					href:"/home"
 				},
 				{
-					name:"Home1",
+					name:"four3",
 					href:"/home"
 				},
 				{
-					name:"Home1",
-					href:"/home"
-				},
-				{
-					name:"Home1",
-					href:"/home"
-				}]
-            },
-			{
-				thead:"HeadOne",
-                thref:"/HeadOne",
-                name:"Home1",
-                href:"/home",
-                childs:[{
-					name:"Home1",
-					href:"/home"
-				},
-				{
-					name:"Home1",
-					href:"/home"
-				},
-				{
-					name:"Home1",
-					href:"/home"
-				},
-				{
-					name:"Home1",
-					href:"/home"
-				},
-				{
-					name:"Home1",
+					name:"four4",
 					href:"/home"
 				}]
             }]
             
 			
         }
-    }
+    },
+	methods: {
+		toAdd(){
+			alert("添加");
+		},
+		toSave(){
+			alert("修改");
+		},
+		toRemove(){
+			alert("删除");
+		},
+		toUpdate(){
+			alert("更新");
+		}
+	}
 }
 </script>
