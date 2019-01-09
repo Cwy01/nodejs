@@ -40,14 +40,6 @@ export default {
                 name:"Home",
                 href:"/home",
                 childs:[]
-            },{
-                name:"Library",
-                href:"/home/library",
-                childs:[]
-            },{
-                name:"Data",
-                href:"/home/library/data",
-                childs:[]
             }]
         }
     },
