@@ -7,14 +7,14 @@
 			</li>
 		</ol>
 		<h3>Index<small>/index</small></h3>
-		
+			<hr/>
 			<div class="btn-group" role="group" aria-label="123">
 				<a class="btn btn-default"  @click="toAdd"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> 添加</a> 
 				<a class="btn btn-default"  @click="toSave"><span class="glyphicon glyphicon-repeat" aria-hidden="true"></span> 修改</a> 
 				<a class="btn btn-default"  @click="toRemove"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> 删除</a>
 				<a class="btn btn-default"  @click="toUpdate"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> 更新</a>
 			</div>
-		<hr/>
+		<p></p>
 		<div class="table-responsive">
 			<table class="table table-striped table-bordered table-hover table-condensed">
 				<!-- On rows -->
