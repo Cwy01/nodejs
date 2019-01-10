@@ -5,7 +5,7 @@
 				<router-link :to="menu.href">{{menu.name}}</router-link>
 			</li>
 		</ol>
-		<h3>Demo Data</h3>
+		<h3>Data<small>/home/library/data</small></h3>
 				<div class="dropdown">
 			<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
 				<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Dropdown
