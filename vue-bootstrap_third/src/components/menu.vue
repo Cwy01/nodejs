@@ -42,7 +42,8 @@ export default{
 }
 </script>
 
-<style>
-.menu .navbar-collapse {padding:0;}
-body { padding-top: 70px;}
+<style scoped>
+
+/* scoped指仅在当前template里的html元素生效 */
+.menu .navbar-collapse{padding: 0;}
 </style>

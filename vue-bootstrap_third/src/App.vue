@@ -44,10 +44,8 @@ export default {
 }
 </script>
 
-<style scoped>
-//scoped指仅在当前template里的html元素生效
-.col-sm-2{
-	padding-right: 0;
-	background: #f8f8f8;
+<style>
+body{
+	
 }
 </style>

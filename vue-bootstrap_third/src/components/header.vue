@@ -21,10 +21,12 @@
 						<span class="caret"></span>
 					</a>
 						<ul class="dropdown-menu">
-							<li><a href="#">首页</a></li>
+							<li><router-link :to="icon.href">
+								<span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>&nbsp;首页
+							</router-link></li>
 							<li role="separator" class="divider"></li>
 							<li v-for="menu in menus">
-								<router-link :to="menu.href">{{menu.name}}</router-link>
+								<router-link :to="menu.href"><span v-bind:class="menu.setClass" class="glyphicon" aria-hidden="true"></span>&nbsp;{{menu.name}}</router-link>
 							</li>
 						</ul>
 					</li>
@@ -83,3 +85,6 @@ export default{
 }
 </script>
 
+<style>
+body {padding-top: 70px;}
+</style>
