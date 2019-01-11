@@ -24,5 +24,8 @@ export default {
 </script>
 
 <style>
-
+.col-sm-2{
+	padding-right: 0;
+	background: #f8f8f8;
+}
 </style>

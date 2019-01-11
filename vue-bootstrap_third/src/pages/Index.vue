@@ -7,7 +7,7 @@
 			</li>
 		</ol>
 		<h3>Index<small>/index</small></h3>
-			<hr/>
+		<hr/>
 			<div class="btn-group" role="group" aria-label="123">
 				<a class="btn btn-default"  @click="toAdd"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> 添加</a> 
 				<a class="btn btn-default"  @click="toSave"><span class="glyphicon glyphicon-repeat" aria-hidden="true"></span> 修改</a> 
@@ -26,6 +26,7 @@
 					</tr>
 				</thead>
 				
+				<!--
 				<tbody>
 					<tr class="" v-for="tbodys in tbodylist">
 						<td role="presentation" v-for="child in tbodys.childs"  v-if="tbodys.childs">
@@ -33,7 +34,23 @@
 						</td>
 					</tr>
 				</tbody>
+				-->
 				
+				<tbody>
+					<tr v-for="(item,index) in tableItem">
+						<td><input type="checkbox" /></td>
+						<td>{{index + 1}}</td>
+						<td role="presentation">
+							<router-link :to="'/Content/' + item.id">{{item.title}}</router-link>
+						</td>
+						<!--
+						<td>{{item.create_at}}</td>
+						-->
+						<td>
+							<time v-text="$utils.goodTime(item.create_at)"></time>
+						</td>
+					</tr>
+				</tbody>
 			</table>
 		</div>
 			
@@ -42,10 +59,11 @@
 
 <script>
 export default {
-  
     name : "Menu",
     data(){
+		
         return {
+			tableItem: [],
             menus:[{
                 name:"Home",
                 href:"/home",
@@ -61,7 +79,7 @@ export default {
             }],
 			
 			tbodylist:[{
-				thead:"HeadOne",
+				thead:"Head1",
                 thref:"/HeadOne",
                 name:"HomeOne",
                 href:"/home",
@@ -83,7 +101,7 @@ export default {
 				}]
             },
 			{
-				thead:"HeadTwo",
+				thead:"Head2",
                 thref:"/HeadTwo",
                 name:"Two1",
                 href:"/home",
@@ -151,8 +169,19 @@ export default {
             
 			
         }
-    },
+	},
+	created(){
+		this.initialization()
+	},
 	methods: {
+		initialization () {
+			this.$api.get('topics', {page:1,limit:8}, r => {
+				console.log(r);
+				if(r.success){
+					this.tableItem = r.data;
+				}
+			})
+		},
 		toAdd(){
 			alert("添加");
 		},
@@ -165,6 +194,6 @@ export default {
 		toUpdate(){
 			alert("更新");
 		}
-	}
+	}	
 }
 </script>
