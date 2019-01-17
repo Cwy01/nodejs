@@ -32,6 +32,7 @@ function filterNull (o) {
   主要是，不同的接口的成功标识和失败提示是不一致的。
   另外，不同的项目的处理方法也是不一致的，这里出错就是简单的alert
 */
+//定义一个Axios封装方法
 function apiAxios (method, url, params, success, failure) {
     if (params) {
         params = filterNull(params)
@@ -39,8 +40,11 @@ function apiAxios (method, url, params, success, failure) {
     axios({
         method: method,
         url: url,
+		// `data` 是作为请求主体被发送的数据
+		// 只适用于这些请求方法 'PUT', 'POST', 和 'PATCH'
         data: method === 'POST' || method === 'PUT' ? params : null,
-        params: method === 'GET' || method === 'DELETE' ? params : null,
+        // `params` 是即将与请求一起发送的 URL 参数
+		params: method === 'GET' || method === 'DELETE' ? params : null,
         baseURL: root,
         withCredentials: false
     })
