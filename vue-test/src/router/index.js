@@ -6,6 +6,7 @@ import JQtest from '@/pages/JQtest'
 import Home from '@/pages/Home'
 import Library from '@/pages/Library'
 import Data from '@/pages/Data'
+import EchartsTest from '@/pages/EchartsTest'
 
 
 Vue.use(Router)
@@ -39,6 +40,11 @@ export default new Router({
 		  path: '/home/library/data',
 		  name: 'Data',
 		  component: Data
+		},
+		{
+		  path: '/ec',
+		  name: 'EchartsTest',
+		  component: EchartsTest
 		}
 	]
 })

@@ -16,6 +16,10 @@ import utils from './utils/index.js'
 // 将工具方法绑定到全局
 Vue.prototype.$utils = utils
 
+import echarts from 'echarts'
+//使用Echarts
+Vue.prototype.$echarts = echarts
+
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
