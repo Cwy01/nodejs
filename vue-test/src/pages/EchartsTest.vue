@@ -1,5 +1,12 @@
 <template>
+	<div>
+		
+	<h3>EchartsTest<small>/ec</small></h3>
+	<hr/>
+	
 	<div id="myChart"></div>
+	
+	</div>
 </template>
 
 <script>

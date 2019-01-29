@@ -32,8 +32,18 @@ export default{
 					setClass:"glyphicon-globe"
                 }]
             },{
-                name:"JQtest",
+                name:"JqueryTest",
                 href:"/jq",
+				setClass:"glyphicon-grain",
+                childs:[]
+            },{
+                name:"EchartsTest",
+                href:"/ec",
+				setClass:"glyphicon-grain",
+                childs:[]
+            },{
+                name:"TableTest",
+                href:"/tt",
 				setClass:"glyphicon-grain",
                 childs:[]
             }]

@@ -7,6 +7,8 @@ import Home from '@/pages/Home'
 import Library from '@/pages/Library'
 import Data from '@/pages/Data'
 import EchartsTest from '@/pages/EchartsTest'
+import BootstrapTable from '@/pages/BootstrapTable'
+import TableTest from '@/pages/TableTest'
 
 
 Vue.use(Router)
@@ -45,6 +47,16 @@ export default new Router({
 		  path: '/ec',
 		  name: 'EchartsTest',
 		  component: EchartsTest
+		},
+		{
+		  path: '/bt',
+		  name: 'BootstrapTable',
+		  component: BootstrapTable
+		},
+		{
+		  path: '/tt',
+		  name: 'TableTest',
+		  component: TableTest
 		}
 	]
 })

@@ -16,9 +16,13 @@ import utils from './utils/index.js'
 // 将工具方法绑定到全局
 Vue.prototype.$utils = utils
 
-import echarts from 'echarts'
 //使用Echarts
+import echarts from 'echarts'
 Vue.prototype.$echarts = echarts
+
+//使用bootstrapTable
+import bootstrapTable from 'bootstrap-table'
+Vue.prototype.$bootstrapTable = bootstrapTable
 
 Vue.config.productionTip = false
 
