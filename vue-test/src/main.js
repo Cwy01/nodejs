@@ -4,7 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import './assets/css/bootstrap.min.css'  
-import './assets/js/bootstrap.min'
+import './assets/js/bootstrap.min.js'
 
 // 引用API文件
 import api from './api/index.js'
@@ -23,6 +23,10 @@ Vue.prototype.$echarts = echarts
 //使用bootstrapTable
 import bootstrapTable from 'bootstrap-table'
 Vue.prototype.$bootstrapTable = bootstrapTable
+
+//import '../static/js/tableExport.min.js'
+import './assets/js/tableExport.js'
+import './assets/js/bootstrap-table-export.min.js'
 
 Vue.config.productionTip = false
 

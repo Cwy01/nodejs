@@ -1,1 +1,1 @@
-npm run build
+cnpm run build

@@ -9,6 +9,8 @@ import Data from '@/pages/Data'
 import EchartsTest from '@/pages/EchartsTest'
 import BootstrapTable from '@/pages/BootstrapTable'
 import TableTest from '@/pages/TableTest'
+import EchartsTestSec from '@/pages/EchartsTestSec'
+import TableTestSec from '@/pages/TableTestSec'
 
 
 Vue.use(Router)
@@ -49,6 +51,11 @@ export default new Router({
 		  component: EchartsTest
 		},
 		{
+		  path: '/ecs',
+		  name: 'EchartsTestSec',
+		  component: EchartsTestSec
+		},
+		{
 		  path: '/bt',
 		  name: 'BootstrapTable',
 		  component: BootstrapTable
@@ -57,6 +64,11 @@ export default new Router({
 		  path: '/tt',
 		  name: 'TableTest',
 		  component: TableTest
+		},
+		{
+		  path: '/tts',
+		  name: 'TableTestSec',
+		  component: TableTestSec
 		}
 	]
 })

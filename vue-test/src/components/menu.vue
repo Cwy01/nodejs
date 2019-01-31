@@ -46,6 +46,16 @@ export default{
                 href:"/tt",
 				setClass:"glyphicon-grain",
                 childs:[]
+            },{
+                name:"EchartsTestSec",
+                href:"/ecs",
+				setClass:"glyphicon-grain",
+                childs:[]
+            },{
+                name:"TableTestSec",
+                href:"/tts",
+				setClass:"glyphicon-grain",
+                childs:[]
             }]
         }
     }
