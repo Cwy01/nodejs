@@ -3,10 +3,10 @@
 		<!--自定义组件SystemHeader -->
 		<SystemHeader></SystemHeader>
 			<div class="row">
-				<div class="col-sm-2">
+				<div class="col-sm-2 menu2">
 					<SystemMenu></SystemMenu>
 				</div>
-				<div class="col-sm-10">  
+				<div class="col-sm-10 view">  
 					<router-view></router-view>
 				</div>	
 			</div>
@@ -40,12 +40,22 @@ export default {
 				this.list = "list";
 				console.log(this.list);
 		}
+
 	}
 }
 </script>
 
 <style>
-body{
-	
+.menu2{
+	border:1px solid #e7e7e7;
+	padding-top:30px;
+	padding-bottom:30px;
+	padding-right:0;
+	background-color:#f8f8f8;
 }
+.view{
+	//border:1px solid red;
+	margin-top:20px;
+}
+
 </style>

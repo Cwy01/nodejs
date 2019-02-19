@@ -8,41 +8,25 @@
 			</router-link>
 		</li>
 	</ul>
-	
-	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-		<div v-for="(menu,Index) in menus">
-			<div v-if="menu.childs">
-				<div class="menu-list nav nav-pills nav-stacked collapse navbar-collapse panel-default">
-					<li role="tab" v-bind:id="menu.heading" @click="iconShow(Index)">
-						<a role="button" data-toggle="collapse" data-parent="#accordion" v-bind:href="menu.href" aria-expanded="false" v-bind:aria-controls="menu.collapse">
-							<span v-bind:class="menu.setClass" class="glyphicon" aria-hidden="true"> {{menu.name}}</span>
-							<span v-if="menu.childs">
-								<span v-bind:class="menu.menuClass" class="glyphicon" aria-hidden="true"></span>
-							</span>
-						</a>
-					</li>
-					<div v-bind:id="menu.collapse" class="nav nav-pills nav-stacked panel-collapse collapse" role="tabpanel" v-bind:aria-labelledby="menu.heading">
-						<li v-for="child in menu.childs">
-							<router-link :to="child.href">
-								<span v-bind:class="child.setClass" class="glyphicon" aria-hidden="true"> {{child.name}}</span>
-							</router-link>
-						</li>
-					</div>	
-				</div>
-			</div>
-			<div v-else>
-				<div class="menu-list nav nav-pills nav-stacked collapse navbar-collapse">
-					<li>
-						<router-link :to="menu.href">
-							<span v-bind:class="menu.setClass" class="glyphicon" aria-hidden="true"> {{menu.name}}</span>
-						</router-link>
-					</li>
-					
-				</div>
-			</div>
-		</div>
-	</div>
-	
+
+	<ul class="menu-list nav nav-pills nav-stacked collapse navbar-collapse ">
+		<li role="presentation" v-for="(menu,Index) in menus">	
+			<router-link :to="menu.href">
+				<span v-bind:class="menu.setClass" class="glyphicon" aria-hidden="true"> {{menu.name}}</span>
+				<span v-if="menu.childs">
+					<span @click="iconShow(Index)" v-bind:class="menu.menuClass" class="glyphicon" aria-hidden="true"></span>
+				</span>
+			</router-link>
+			<ul class="nav nav-pills nav-stacked">
+				<li v-for="child in menu.childs" v-if="menu.menuView">
+					<router-link :to="child.href">
+						<span v-bind:class="child.setClass" class="glyphicon" aria-hidden="true"> {{child.name}}</span>
+					</router-link>
+				</li>
+			</ul>
+			
+		</li>
+	</ul>	
 </div>
 </template>
 
@@ -51,18 +35,16 @@ export default{
     name : "Menu",
     data(){
         return {
-			
 			menuLeft:{
                 name:"功能列表",
                 href:"/home",
 				setClass:"glyphicon-menu-left list",
-				
+				menuClass:"glyphicon-menu-down list",
+				menuView:false,
             },
             menus:[{
                 name:"展开",
-                href:"#collapseOne",
-				heading:"headingOne",
-				collapse:"collapseOne",
+                href:"/home",
 				setClass:"glyphicon-home",
 				menuClass:"glyphicon-menu-down list",
 				menuView:false,
@@ -77,26 +59,19 @@ export default{
                 }]
             },{
                 name:"JqueryTest",
-                href:"#collapseTwo",
-				heading:"headingTwo",
-				collapse:"collapseTwo",
-				setClass:"glyphicon-grain",
-				menuClass:"glyphicon-menu-down list",
-				menuView:false,
-				
-                childs:[{
-                    name:"jq",
-					href:"/jq",
-					setClass:"glyphicon-grain",
-                }]
-            },{
-                name:"headingThree",
-                href:"#collapseThree",
-				heading:"headingThree",
-				collapse:"collapseThree",
+                href:"/jq",
 				setClass:"glyphicon-grain",				
 				menuClass:"glyphicon-menu-down list",
 				menuView:false,
+                childs:[{
+                    name:"Home",
+					href:"/home",
+					setClass:"glyphicon-home",
+                },{
+                    name:"Index",
+                    href:"/",
+					setClass:"glyphicon-globe"
+                }]
             },{
                 name:"EchartsTest",
                 href:"/ec",
@@ -123,7 +98,6 @@ export default{
 				menuView:false,
             }]
         }
-		
     }, 
 	methods: {
 		iconShow: function (index) { 
@@ -145,10 +119,13 @@ export default{
 </script>
 
 <style scoped>
+.menu-head{border-bottom:1px solid #e7e7e7;
+}
+.menu-list li{
+	//border:1px red solid;
+	margin:0;
+}
 /* scoped指仅在当前template里的html元素生效 */
-.menu-head{border-bottom:1px solid #e7e7e7;}
-.menu-list li {margin:0;}
-.menu .navbar-collapse {padding: 0;}
-.list {float:right;}
-.nav-pills li a {border-radius: 0px;}
+.menu .navbar-collapse{padding: 0;}
+.list{float:right;}
 </style>

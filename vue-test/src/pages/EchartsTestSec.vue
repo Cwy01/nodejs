@@ -52,7 +52,7 @@ export default {
 				},
 				series : [
 					{
-						name: 'AllData',
+						name: '详细数据',
 						type: 'pie',
 						radius : ['50%', '70%'],
 						center: ['50%', '60%'],

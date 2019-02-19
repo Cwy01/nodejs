@@ -86,5 +86,5 @@ export default{
 </script>
 
 <style>
-body {padding-top: 70px;}
+body {padding-top: 50px;}
 </style>
