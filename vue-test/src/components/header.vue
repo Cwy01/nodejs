@@ -66,20 +66,75 @@ export default{
 				href:"/"
 			},
             menus:[{
-                name:"Home",
-                href:"/home",
+                name:"展开",
+                href:"#collapseOne",
+				heading:"headingOne",
+				collapse:"collapseOne",
 				setClass:"glyphicon-home",
-                childs:[]
+				menuClass:"glyphicon-menu-down list",
+				menuView:false,
+                childs:[{
+                    name:"Home",
+					href:"/home",
+					setClass:"glyphicon-home",
+                },{
+                    name:"Index",
+                    href:"/",
+					setClass:"glyphicon-globe"
+                }]
             },{
-				name:"Index",
-				href:"/",
-				setClass:"glyphicon-globe"
-            },{
-                name:"JQtest",
-                href:"/jq",
+                name:"JqueryTest",
+                href:"#collapseTwo",
+				heading:"headingTwo",
+				collapse:"collapseTwo",
 				setClass:"glyphicon-grain",
-                childs:[]
+				menuClass:"glyphicon-menu-down list",
+				menuView:false,
+				
+                childs:[{
+                    name:"jq",
+					href:"/jq",
+					setClass:"glyphicon-grain",
+                }]
+            },{
+                name:"headingThree",
+                href:"#collapseThree",
+				heading:"headingThree",
+				collapse:"collapseThree",
+				setClass:"glyphicon-grain",				
+				menuClass:"glyphicon-menu-down list",
+				menuView:false,
+				childs:[{
+                    name:"Home",
+					href:"/home",
+					setClass:"glyphicon-home",
+                }]
+            },{
+                name:"EchartsTest",
+                href:"/ec",
+				setClass:"glyphicon-grain",				
+				menuClass:"glyphicon-menu-down list",
+				menuView:false,
+            },{
+                name:"TableTest",
+                href:"/tt",
+				setClass:"glyphicon-grain",				
+				menuClass:"glyphicon-menu-down list",
+				menuView:false,
+            },{
+                name:"EchartsTestSec",
+                href:"/ecs",
+				setClass:"glyphicon-grain",				
+				menuClass:"glyphicon-menu-down list",
+				menuView:false,
+            },{
+                name:"TableTestSec",
+                href:"/tts",
+				setClass:"glyphicon-grain",				
+				menuClass:"glyphicon-menu-down list",
+				menuView:false,
             }]
+        
         }
     }
 }

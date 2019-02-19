@@ -1,13 +1,13 @@
 <template>
 <div class="menu">	
-	<ul class="menu-head nav nav-pills nav-stacked collapse navbar-collapse ">
+	<div class="menu-head nav nav-pills nav-stacked collapse navbar-collapse">
 		<li>
 			<router-link :to="menuLeft.href">
 				{{menuLeft.name}}
 				<span v-bind:class="menuLeft.setClass" class="glyphicon" aria-hidden="true"></span>
 			</router-link>
 		</li>
-	</ul>
+	</div>
 	
 	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 		<div v-for="(menu,Index) in menus">
@@ -37,7 +37,6 @@
 							<span v-bind:class="menu.setClass" class="glyphicon" aria-hidden="true"> {{menu.name}}</span>
 						</router-link>
 					</li>
-					
 				</div>
 			</div>
 		</div>
@@ -97,6 +96,11 @@ export default{
 				setClass:"glyphicon-grain",				
 				menuClass:"glyphicon-menu-down list",
 				menuView:false,
+				childs:[{
+                    name:"Home",
+					href:"/home",
+					setClass:"glyphicon-home",
+                }]
             },{
                 name:"EchartsTest",
                 href:"/ec",

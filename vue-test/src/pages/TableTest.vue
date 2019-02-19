@@ -67,7 +67,8 @@ export default {
 				//data: [{"id": 0,"name": "item0","price": "1,000"},{"id": 1,"name": "item1","price": "2,000"},{"id": 2,"name": "item2","price": "3,000"}],
 			})
 			
-			$(".dropdown-menu").addClass("dropdown-menu-right");
+			$(".export .dropdown-menu").addClass("dropdown-menu-right");
+		
 		}
 	}
 }

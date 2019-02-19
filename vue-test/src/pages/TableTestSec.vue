@@ -78,7 +78,7 @@ export default {
 				//data: [{"title": "title1","create_at": "create_at1","id": "1,000"}]
 			});
 			
-			$(".dropdown-menu").addClass("dropdown-menu-right");
+			$(".export .dropdown-menu").addClass("dropdown-menu-right");
 		}
 	}
 }
