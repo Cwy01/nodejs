@@ -3,7 +3,7 @@
 		<!--自定义组件SystemHeader -->
 		<SystemHeader></SystemHeader>
 			<div class="row">
-				<div class="col-sm-2 menu2">
+				<div v-bind:class="{menu2: setMenu }" class="systemMenu col-sm-2">
 					<SystemMenu></SystemMenu>
 				</div>
 				<div class="col-sm-10 view">  
@@ -24,10 +24,12 @@ export default {
 	//把引用的组件给申明到components中
 	components: { SystemHeader, SystemFooter, SystemMenu },
     name: 'app',
+	
 	data (){
 	//数据，可以用this.list来传递数据
 		return {
-			list: []
+			list: [],
+			setMenu: true,
 		}
 	},
 	//当组件加载完成时，需要执行的内容
@@ -37,10 +39,18 @@ export default {
 	//组件的方法
 	methods: {
 		getData() {
-				this.list = "list";
-				console.log(this.list);
+			this.list = "list";
+			console.log(this.list+"------"+$(".systemMenu").width()+"--------"+$(window).width());
+			if($(".systemMenu").width()==$(window).width()){
+				this.setMenu = false
+			}else{
+				this.setMenu = true
+			}
 		}
-
+	},
+	//监听数据的变化
+	watch: {    
+		//menuOption: 'getData'
 	}
 }
 </script>

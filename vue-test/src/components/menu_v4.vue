@@ -1,12 +1,10 @@
 <template>
 <div class="menu">	
 	<div class="menu-head nav nav-pills nav-stacked collapse navbar-collapse">
-		<li @click="iconManage()">
+		<li>
 			<router-link :to="menuLeft.href">
-					<span v-bind:class="menuLeft.setClass" class="glyphicon" aria-hidden="true">
-						<span v-show="managerShow">{{menuLeft.name}}</span>	
-					</span>
-				<span v-bind:class="menuLeft.menuClass" v-bind:style="styleObject" class="glyphicon" aria-hidden="true"></span>
+				{{menuLeft.name}}
+				<span v-bind:class="menuLeft.setClass" class="glyphicon" aria-hidden="true"></span>
 			</router-link>
 		</li>
 	</div>
@@ -17,22 +15,16 @@
 				<div class="menu-list nav nav-pills nav-stacked collapse navbar-collapse panel-default">
 					<li role="tab" v-bind:id="menu.heading" @click="iconShow(Index)">
 						<a role="button" data-toggle="collapse" data-parent="#accordion" v-bind:href="menu.href" aria-expanded="false" v-bind:aria-controls="menu.collapse">
-							<span v-bind:class="menu.setClass" class="glyphicon" aria-hidden="true">
-							<span v-show="managerShow">{{menu.name}}</span>
-							</span>
-							<span v-show="managerShow">
-								<span v-if="menu.childs">
-									<span v-bind:class="menu.menuClass" class="glyphicon" aria-hidden="true"></span>
-								</span>
+							<span v-bind:class="menu.setClass" class="glyphicon" aria-hidden="true"> {{menu.name}}</span>
+							<span v-if="menu.childs">
+								<span v-bind:class="menu.menuClass" class="glyphicon" aria-hidden="true"></span>
 							</span>
 						</a>
 					</li>
 					<div v-bind:id="menu.collapse" class="nav nav-pills nav-stacked panel-collapse collapse" role="tabpanel" v-bind:aria-labelledby="menu.heading">
 						<li v-for="child in menu.childs">
 							<router-link :to="child.href">
-								<span v-bind:class="child.setClass" class="glyphicon" aria-hidden="true"> 
-									<span v-show="managerShow">{{child.name}}</span>
-								</span>
+								<span v-bind:class="child.setClass" class="glyphicon" aria-hidden="true"> {{child.name}}</span>
 							</router-link>
 						</li>
 					</div>	
@@ -42,9 +34,7 @@
 				<div class="menu-list nav nav-pills nav-stacked collapse navbar-collapse">
 					<li>
 						<router-link :to="menu.href">
-							<span v-bind:class="menu.setClass" class="glyphicon" aria-hidden="true">
-								<span v-show="managerShow">{{menu.name}}</span>
-							</span>
+							<span v-bind:class="menu.setClass" class="glyphicon" aria-hidden="true"> {{menu.name}}</span>
 						</router-link>
 					</li>
 				</div>
@@ -60,15 +50,12 @@ export default{
     name : "Menu",
     data(){
         return {
-			managerShow:true,
-			styleObject: {
-				float:"right",
-			},
+			
 			menuLeft:{
                 name:"功能列表",
                 href:"/home",
-				setClass:"glyphicon-home",
-				menuClass:"glyphicon-menu-left",
+				setClass:"glyphicon-menu-left list",
+				
             },
             menus:[{
                 name:"展开",
@@ -151,17 +138,6 @@ export default{
 			}else{
 				this.menus[index].menuClass = "glyphicon-menu-up list"; 
 				this.menus[index].menuView = true;
-			}
-		},
-		iconManage: function () { 
-			if(this.managerShow){
-				this.menuLeft.menuClass = "glyphicon-menu-right"; 
-				this.managerShow = false;
-				this.styleObject.float="left";
-			}else{
-				this.menuLeft.menuClass = "glyphicon-menu-left"; 
-				this.managerShow = true;
-				this.styleObject.float="right";
 			}
 		}
 		
