@@ -1,0 +1,1 @@
+export const iconStatusMsg = state => state.iconStatusMsg;

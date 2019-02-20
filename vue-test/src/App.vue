@@ -4,7 +4,7 @@
 		<SystemHeader></SystemHeader>
 			<div class="row">
 				<div v-bind:class="{menu2: setMenu }" class="systemMenu col-sm-2">
-					<SystemMenu></SystemMenu>
+					<SystemMenu></SystemMenu>{{iconStatusMsg}}
 				</div>
 				<div class="col-sm-10 view">  
 					<router-view></router-view>
@@ -19,6 +19,7 @@
 import SystemHeader from './components/header.vue'
 import SystemFooter from './components/footer.vue'
 import SystemMenu from './components/menu.vue'
+import {mapGetters, mapActions} from 'vuex'
 export default {
 	// 这里写自己的代码
 	//把引用的组件给申明到components中
@@ -40,18 +41,15 @@ export default {
 	methods: {
 		getData() {
 			this.list = "list";
-			console.log(this.list+"------"+$(".systemMenu").width()+"--------"+$(window).width());
-			if($(".systemMenu").width()==$(window).width()){
-				this.setMenu = false
-			}else{
-				this.setMenu = true
-			}
+			console.log("iconStatusMsg:"+this.$store.state.iconStatusMsg);
+			
 		}
 	},
 	//监听数据的变化
 	watch: {    
-		//menuOption: 'getData'
-	}
+		//iconStatusMsg: 'getData'
+	},
+    computed: {...mapGetters(['iconStatusMsg'])},
 }
 </script>
 

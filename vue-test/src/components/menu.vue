@@ -1,7 +1,7 @@
 <template>
 <div class="menu">	
-	<div class="menu-head nav nav-pills nav-stacked collapse navbar-collapse">
-		<li @click="iconManage()">
+	<div class="menu-head nav nav-pills nav-stacked collapse navbar-collapse" @click="iconStatus">
+		<li @click="iconManage">
 			<router-link :to="menuLeft.href">
 					<span v-bind:class="menuLeft.setClass" class="glyphicon" aria-hidden="true">
 						<span v-show="managerShow">{{menuLeft.name}}</span>	
@@ -56,6 +56,7 @@
 </template>
 
 <script>
+import {mapGetters, mapActions} from 'vuex';
 export default{
     name : "Menu",
     data(){
@@ -158,12 +159,14 @@ export default{
 				this.menuLeft.menuClass = "glyphicon-menu-right"; 
 				this.managerShow = false;
 				this.styleObject.float="left";
+				
 			}else{
 				this.menuLeft.menuClass = "glyphicon-menu-left"; 
 				this.managerShow = true;
 				this.styleObject.float="right";
 			}
-		}
+		},
+		...mapActions(['iconStatus'])
 		
 	},
 	//监听数据的变化

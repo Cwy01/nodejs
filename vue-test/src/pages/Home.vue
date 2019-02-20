@@ -7,34 +7,38 @@
 		</ol>
 	<h3>Home<small>/home</small></h3>
 	<hr/>
-	
+		
+		<button class="btn btn-default" @click="iconStatus">点击改变msg</button><br>
+		msg: {{iconStatusMsg}}
+			
 		<nav aria-label="...">
 			<ul class="pager">
-				<li><router-link :to="href1">Previous</router-link></li>
-				<li><router-link :to="href2">Next</router-link></li>
+				<li><router-link :to="href">Previous</router-link></li>
+				<li><router-link :to="href">Next</router-link></li>
 			</ul>
 		</nav>
-	
+
 	</div>
 </template>
 <script>
-
+import {mapGetters, mapActions} from 'vuex'
 export default {
-
-    name : "Menu",
+    name : 'Home',
     data(){
         return {
+			href:"/",
             menus:[{
-                name:"Home",
-                href:"/home",
-                childs:[]
+                name:'Home',
+                href:"/home"
             }]
         }
     },
 	methods: {
 		testJQ () {
 			$('.love p').html('jquery 工作正常！')
-		}
-	}
+		},
+		...mapActions(['iconStatus'])
+	},
+    computed: {...mapGetters(['iconStatusMsg'])},
 }
 </script>
