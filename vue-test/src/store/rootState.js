@@ -1,4 +1,4 @@
 const state = {
-  iconStatusMsg: true,
+  iconStatusMsg: false,
 }
 export default state;

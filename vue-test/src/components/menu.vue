@@ -4,7 +4,9 @@
 		<li @click="iconManage">
 			<router-link :to="menuLeft.href">
 					<span v-bind:class="menuLeft.setClass" class="glyphicon" aria-hidden="true">
-						<span v-show="managerShow">{{menuLeft.name}}</span>	
+						<transition name="fade">
+							<span v-show="managerShow">{{menuLeft.name}}</span>
+						</transition>
 					</span>
 				<span v-bind:class="menuLeft.menuClass" v-bind:style="styleObject" class="glyphicon" aria-hidden="true"></span>
 			</router-link>
@@ -18,13 +20,17 @@
 					<li role="tab" v-bind:id="menu.heading" @click="iconShow(Index)">
 						<a role="button" data-toggle="collapse" data-parent="#accordion" v-bind:href="menu.href" aria-expanded="false" v-bind:aria-controls="menu.collapse">
 							<span v-bind:class="menu.setClass" class="glyphicon" aria-hidden="true">
-							<span v-show="managerShow">{{menu.name}}</span>
+								<transition name="fade">
+									<span v-show="managerShow">{{menu.name}}</span>
+								</transition>
 							</span>
-							<span v-show="managerShow">
-								<span v-if="menu.childs">
-									<span v-bind:class="menu.menuClass" class="glyphicon" aria-hidden="true"></span>
+							<transition name="fade">
+								<span v-show="managerShow">
+									<span v-if="menu.childs">
+										<span v-bind:class="menu.menuClass" class="glyphicon" aria-hidden="true"></span>
+									</span>
 								</span>
-							</span>
+							</transition>
 						</a>
 					</li>
 					<div v-bind:id="menu.collapse" class="nav nav-pills nav-stacked panel-collapse collapse" role="tabpanel" v-bind:aria-labelledby="menu.heading">
@@ -43,7 +49,9 @@
 					<li>
 						<router-link :to="menu.href">
 							<span v-bind:class="menu.setClass" class="glyphicon" aria-hidden="true">
-								<span v-show="managerShow">{{menu.name}}</span>
+								<transition name="fade">
+									<span v-show="managerShow">{{menu.name}}</span>
+								</transition>
 							</span>
 						</router-link>
 					</li>
@@ -66,13 +74,13 @@ export default{
 				float:"right",
 			},
 			menuLeft:{
-                name:"功能列表",
+                name:"list",
                 href:"/home",
 				setClass:"glyphicon-home",
 				menuClass:"glyphicon-menu-left",
             },
             menus:[{
-                name:"展开",
+                name:"show",
                 href:"#collapseOne",
 				heading:"headingOne",
 				collapse:"collapseOne",
@@ -89,7 +97,7 @@ export default{
 					setClass:"glyphicon-globe"
                 }]
             },{
-                name:"JqueryTest",
+                name:"JqTest",
                 href:"#collapseTwo",
 				heading:"headingTwo",
 				collapse:"collapseTwo",
@@ -103,7 +111,7 @@ export default{
 					setClass:"glyphicon-grain",
                 }]
             },{
-                name:"headingThree",
+                name:"Test3",
                 href:"#collapseThree",
 				heading:"headingThree",
 				collapse:"collapseThree",
@@ -159,7 +167,7 @@ export default{
 				this.menuLeft.menuClass = "glyphicon-menu-right"; 
 				this.managerShow = false;
 				this.styleObject.float="left";
-				this.menuLeft.setClass =" ";
+				this.menuLeft.setClass ="";
 				
 			}else{
 				this.menuLeft.menuClass = "glyphicon-menu-left"; 
@@ -185,5 +193,13 @@ export default{
 .menu .navbar-collapse {padding: 0;}
 .list {float:right;}
 .nav-pills li a {border-radius: 0px;}
-
+.fade-enter-active{
+  transition: opacity 1.2s;
+}
+.fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
 </style>

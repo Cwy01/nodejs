@@ -3,10 +3,10 @@
 		<!--自定义组件SystemHeader -->
 		<SystemHeader></SystemHeader>
 			<div class="row">
-				<div @click="statusFun" v-bind:class="{menu2: setMenu ,systemMenu:iconStatusBoolean}" class="col-sm-2">
+				<div @click="statusFun" v-bind:class="{menu2: setMenu ,systemMenu:iconStatusBoolean,systemMenuAdd:!iconStatusBoolean}" class="col-sm-2">
 					<SystemMenu></SystemMenu>{{iconStatusMsg}}
 				</div>
-				<div class="col-sm-10 view"  v-bind:class="{routerView:iconStatusBoolean}">  
+				<div class="col-sm-10 view"  v-bind:class="{routerView:iconStatusBoolean,routerViewAdd:!iconStatusBoolean}">  
 					<router-view></router-view>
 				</div>	
 			</div>
@@ -71,10 +71,37 @@ export default {
 	//border:1px solid red;
 	margin-top:20px;
 }
+
 .systemMenu{
 	width:5% !important;
+	animation: systemMenuMove .8s;
 }
 .routerView{
 	width: 95% !important;
+	animation: routerViewMove .8s;
+}
+@keyframes systemMenuMove{
+	from {width:16.666%;}
+	to {width:5%;}
+}
+@keyframes routerViewMove{
+	from {width:83.333%;}
+	to {width:95%;}
+}
+.systemMenuAdd{
+	width:16.666% !important;
+	animation: systemMenuAdd .8s;
+}
+.routerViewAdd{
+	width: 83.333% !important;
+	animation: routerViewAdd .8s;
+}
+@keyframes systemMenuAdd{
+	from {width:5%;}
+	to {width:16.666%;}
+}
+@keyframes routerViewAdd{
+	from {width:95%;}
+	to {width:83.333%;}
 }
 </style>

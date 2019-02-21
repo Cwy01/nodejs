@@ -11,10 +11,6 @@
 		<button class="btn btn-default" @click="iconStatus">点击改变msg</button><br>
 		msg: {{iconStatusMsg}}
 		
-		<div id="vm2-2">
-			<button @click="show = !show">Toggle show</button>
-			<p v-if="show">Look at me!</p>	
-		</div>	
 		
 		<nav aria-label="...">
 			<ul class="pager">
@@ -32,7 +28,6 @@ export default {
     data(){
         return {
 			href:"/",
-			show:true,
             menus:[{
                 name:'Home',
                 href:"/home"
@@ -48,3 +43,7 @@ export default {
     computed: {...mapGetters(['iconStatusMsg'])},
 }
 </script>
+<style scoped>
+
+
+</style>
