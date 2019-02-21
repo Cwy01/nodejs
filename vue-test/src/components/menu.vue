@@ -159,11 +159,13 @@ export default{
 				this.menuLeft.menuClass = "glyphicon-menu-right"; 
 				this.managerShow = false;
 				this.styleObject.float="left";
+				this.menuLeft.setClass =" ";
 				
 			}else{
 				this.menuLeft.menuClass = "glyphicon-menu-left"; 
 				this.managerShow = true;
 				this.styleObject.float="right";
+				this.menuLeft.setClass ="glyphicon-home";
 			}
 		},
 		...mapActions(['iconStatus'])

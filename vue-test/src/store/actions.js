@@ -1,4 +1,4 @@
-var status = true;
+var status = false;
 export const iconStatus = ({commit}) => {
 	if(status){
 		commit({

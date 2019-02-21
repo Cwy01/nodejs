@@ -3,10 +3,10 @@
 		<!--自定义组件SystemHeader -->
 		<SystemHeader></SystemHeader>
 			<div class="row">
-				<div v-bind:class="{menu2: setMenu }" class="systemMenu col-sm-2">
+				<div @click="statusFun" v-bind:class="{menu2: setMenu ,systemMenu:iconStatusBoolean}" class="col-sm-2">
 					<SystemMenu></SystemMenu>{{iconStatusMsg}}
 				</div>
-				<div class="col-sm-10 view">  
+				<div class="col-sm-10 view"  v-bind:class="{routerView:iconStatusBoolean}">  
 					<router-view></router-view>
 				</div>	
 			</div>
@@ -31,6 +31,8 @@ export default {
 		return {
 			list: [],
 			setMenu: true,
+			iconStatusBoolean: false,
+			oldWidth:'',
 		}
 	},
 	//当组件加载完成时，需要执行的内容
@@ -39,15 +41,19 @@ export default {
 	},
 	//组件的方法
 	methods: {
+		
 		getData() {
 			this.list = "list";
 			console.log("iconStatusMsg:"+this.$store.state.iconStatusMsg);
 			
+		},
+		statusFun: function (){
+			this.iconStatusBoolean = this.$store.state.iconStatusMsg;
 		}
 	},
 	//监听数据的变化
 	watch: {    
-		//iconStatusMsg: 'getData'
+		iconStatusBoolean:'statusFun',
 	},
     computed: {...mapGetters(['iconStatusMsg'])},
 }
@@ -65,5 +71,10 @@ export default {
 	//border:1px solid red;
 	margin-top:20px;
 }
-
+.systemMenu{
+	width:5% !important;
+}
+.routerView{
+	width: 95% !important;
+}
 </style>

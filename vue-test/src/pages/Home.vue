@@ -10,7 +10,12 @@
 		
 		<button class="btn btn-default" @click="iconStatus">点击改变msg</button><br>
 		msg: {{iconStatusMsg}}
-			
+		
+		<div id="vm2-2">
+			<button @click="show = !show">Toggle show</button>
+			<p v-if="show">Look at me!</p>	
+		</div>	
+		
 		<nav aria-label="...">
 			<ul class="pager">
 				<li><router-link :to="href">Previous</router-link></li>
@@ -27,6 +32,7 @@ export default {
     data(){
         return {
 			href:"/",
+			show:true,
             menus:[{
                 name:'Home',
                 href:"/home"
