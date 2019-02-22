@@ -80,7 +80,7 @@ export default{
 			},
 			menuLeft:{
                 name:"list",
-                href:"/home",
+                href:"",
 				setClass:"glyphicon-home",
 				menuClass:"glyphicon-menu-left",
             },
