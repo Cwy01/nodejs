@@ -3,14 +3,16 @@
 	<div class="menu-head nav nav-pills nav-stacked collapse navbar-collapse" @click="iconStatus">
 		<li  class="hiddenStyle" @click="iconManage">
 			<router-link :to="menuLeft.href">
-					<span  v-bind:class="[{glyphicon:glyphiconView}, menuLeft.setClass]" aria-hidden="true">
-						<transition name="fade">
-							<span v-show="managerShow">{{menuLeft.name}}</span>
-						</transition>
+				<transition name="fade">
+					<span v-bind:class="[{glyphicon:glyphiconView}, menuLeft.setClass]" aria-hidden="true">
+						<span v-show="managerShow">{{menuLeft.name}}</span>
 					</span>
-				<span v-if="false">
-					<span v-bind:class="menuLeft.menuClass" v-bind:style="styleObject" class="glyphicon" aria-hidden="true"></span>
-				</span>
+				</transition>
+				<transition name="managerFade">
+					<span v-show="managerShow">
+						<span v-bind:class="menuLeft.menuClass" v-bind:style="styleObject" class="glyphicon" aria-hidden="true"></span>
+					</span>
+				</transition>
 			</router-link>
 		</li>
 	</div>
@@ -176,7 +178,7 @@ export default{
 				this.menuLeft.menuClass = "glyphicon-menu-right"; 
 				this.managerShow = false;
 				this.styleObject.float="left";
-				this.menuLeft.setClass ="";
+				this.menuLeft.setClass ="glyphicon-menu-right";
 				//this.glyphiconView = false;
 			}else{
 				this.menuLeft.menuClass = "glyphicon-menu-left"; 
@@ -208,7 +210,8 @@ export default{
 .fade-enter-active{transition: opacity 1.2s;}
 .fade-leave-active {transition: opacity .5s;}
 .fade-enter, .fade-leave-to {opacity: 0;}
-.managerFade-enter-active{transition:opacity 10s cubic-bezier(1.0, 1.5, 0.8, 0.0) 2;}
+//.managerFade-enter-active{transition-timing-function: cubic-bezier(5.0, 5.0, 3.0, 0.0);transition-delay: .5s;}
+.managerFade-enter-active{transition-delay: .5s;}
 .managerFade-leave-active {transition: opacity 0s;}
 .managerFade-enter {opacity: 0;}
 .managerFade-leave-to {opacity: 0;}
