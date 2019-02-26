@@ -35,6 +35,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  //使用 "store" 选项后，可以注册 store 对象。将会把 store 实例注入到所有子组件。
   store,
   components: { App },
   template: '<App/>'

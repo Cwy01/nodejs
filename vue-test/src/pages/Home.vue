@@ -38,6 +38,8 @@ export default {
 		testJQ () {
 			$('.love p').html('jquery 工作正常！')
 		},
+		// 映射 this.status() 到 this.$store.dispatch('iconStatus')
+		//...mapActions({status: 'iconStatus'})
 		...mapActions(['iconStatus'])
 	},
     computed: {...mapGetters(['iconStatusMsg'])},
