@@ -12,6 +12,10 @@ import TableTest from '@/pages/TableTest'
 import EchartsTestSec from '@/pages/EchartsTestSec'
 import TableTestSec from '@/pages/TableTestSec'
 
+// 子路由视图VUE组件
+import frame from '@/frame/frame'
+// 引用 news 子路由配置文件
+import news from './news.js'
 
 Vue.use(Router)
 
@@ -69,6 +73,11 @@ export default new Router({
 		  path: '/tts',
 		  name: 'TableTestSec',
 		  component: TableTestSec
+		}, 
+		{
+		  path: '/news',
+		  component: frame,
+		  children: news
 		}
 	]
 })

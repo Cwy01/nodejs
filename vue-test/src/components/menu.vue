@@ -158,6 +158,13 @@ export default{
 				menuClass:"glyphicon-menu-down list",
 				menuView:false,
 				glyphiconView:true,
+            },{
+                name:"news",
+                href:"/news/firstFrame",
+				setClass:"glyphicon-grain",				
+				menuClass:"glyphicon-menu-down list",
+				menuView:false,
+				glyphiconView:true,
             }]
         }
     }, 
