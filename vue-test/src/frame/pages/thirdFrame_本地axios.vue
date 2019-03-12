@@ -1,36 +1,40 @@
 <template>
 	<div>
-		<h3>secondFrame<small>/secondFrame</small></h3>
+		<h3>thirdFrame<small>/thirdFrame</small></h3>
 		<hr/>
 		<div id="myChart"></div>
 	</div>
 </template>
 
 <script>
+import axios from "axios";
 export default {
-	name: "secondFrame",
+	name: "thirdFrame",
 	components: {
 	},
 	data(){
 		return{
-			data:[{
-			"name": "cluster",
-				"children": [
-					{"name": "AgglomerativeCluster", "value": 3938},
-					{"name": "CommunityStructure", "value": 3812},
-					{"name": "HierarchicalCluster", "value": 6714},
-					{"name": "MergeEdge", "value": 743}
-				]
-			}]
+			data:[]
 			
 		}
 	},
 	mounted(){
-		this.drawLine();
+		this.initialization()
+		//this.drawLine()
+	},
+	created(){
+		
 	},
 	methods: {
+		initialization() {
+			//从后台获取数据
+			axios.get('../../../static/flare.json').then(r => {
+				console.log(r);
+				this.data = r.data;
+				this.drawLine();
+			});
+		},
 		drawLine(){
-			console.log(this.data);
 			// 基于准备好的dom，初始化echarts实例
 			let myChart = this.$echarts.init(document.getElementById('myChart'))
 			// 绘制图表
