@@ -62,7 +62,7 @@ export default {
 						type: 'shadow',
 						lineStyle: {
 							width: 12,
-							color: '#777',
+							color: 'rgba(119,119,119,0)',
 							opacity: 0.3,
 						},
 					}
@@ -108,8 +108,8 @@ export default {
 							color: new this.$echarts.graphic.LinearGradient(
 								0, 0, 0, 1,
 								[
-									{offset: 0, color: '#59bcff'},
-									{offset: 1, color: '#19a2ff'}
+									{offset: 0, color: '#90d2ff'},
+									{offset: 1, color: '#0e9dff'}
 								]
 							)
 						}

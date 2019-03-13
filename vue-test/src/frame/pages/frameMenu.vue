@@ -51,7 +51,7 @@ export default {
 				}
 			})
 			this.activeStatus = arr;
-			console.log(activeStatus);
+			//console.log(this.activeStatus);
 		}
 	}
 }

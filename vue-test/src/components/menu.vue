@@ -160,7 +160,7 @@ export default{
 				glyphiconView:true,
             },{
                 name:"news",
-                href:"/news/firstFrame",
+                href:"/news/frameHome",
 				setClass:"glyphicon-grain",				
 				menuClass:"glyphicon-menu-down list",
 				menuView:false,
