@@ -3,6 +3,8 @@ import frameMenu from '@/frame/pages/frameMenu'
 import firstFrame from '@/frame/pages/firstFrame'
 import secondFrame from '@/frame/pages/secondFrame'
 import thirdFrame from '@/frame/pages/thirdFrame'
+import fouthFrame from '@/frame/pages/fouthFrame'
+import fifthFrame from '@/frame/pages/fifthFrame'
 
 export default [
 	{
@@ -29,5 +31,15 @@ export default [
 	  path: '/news/thirdFrame',
 	  name: 'thirdFrame',
 	  component: thirdFrame
+	},
+	{
+	  path: '/news/fouthFrame',
+	  name: 'fouthFrame',
+	  component: fouthFrame
+	},
+	{
+	  path: '/news/fifthFrame',
+	  name: 'fifthFrame',
+	  component: fifthFrame
 	}
 ]

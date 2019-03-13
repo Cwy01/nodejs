@@ -28,8 +28,16 @@ export default {
                 name:'thirdMenu',
 				tab:'thirdTab',
                 href:"/news/thirdFrame"
+            },{
+                name:'fouthMenu',
+				tab:'fouthTab',
+                href:"/news/fouthFrame"
+            },{
+                name:'fifthMenu',
+				tab:'fifthTab',
+                href:"/news/fifthFrame"
             }],
-			activeStatus: [true,0,0,0,0,0,0,0,0,0,],
+			activeStatus: [true,false,false,false,false,false,false,false,false,false,],
         }
     }, 
 	methods: {

@@ -7,7 +7,6 @@
 </template>
 
 <script>
-import axios from "axios";
 export default {
 	name: "thirdFrame",
 	components: {
@@ -15,12 +14,9 @@ export default {
 	data(){
 		return{
 			data:[]
-			
 		}
 	},
 	mounted(){
-		
-		//this.drawLine()
 	},
 	created(){
 		this.initialization()
@@ -28,8 +24,9 @@ export default {
 	methods: {
 		initialization() {
 			//从后台获取数据
-			this.$api.get('/../../static/flare2.json', {}, r => {
+			this.$api.get('../../static/flare.json', {}, r => {
 				console.log(r);
+				
 				if(r.success){
 					this.data = r.data;
 					this.drawLine();
@@ -74,7 +71,6 @@ export default {
 								}
 							}
 						},
-
 						expandAndCollapse: true,
 						animationDuration: 550,
 						animationDurationUpdate: 750
