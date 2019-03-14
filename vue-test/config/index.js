@@ -17,6 +17,12 @@ module.exports = {
 			//target: 'https://cnodejs.org', // 你接口的域名
 			secure: false,
 			changeOrigin: false,
+		},
+		'/file/**': {
+			target: 'http://127.0.0.1:8585', // 你接口的域名
+			//target: 'https://cnodejs.org', // 你接口的域名
+			secure: false,
+			changeOrigin: false,
 		}
 	},
 

@@ -71,7 +71,9 @@ export default {
 	//border:1px solid red;
 	margin-top:20px;
 }
-
+.row {
+    margin-right: 0px !important;
+}
 .systemMenu{
 	width:5% !important;
 	animation: systemMenuMove .8s;
