@@ -42,7 +42,7 @@ export default {
 	methods: {
 		initialization() {
 			//从后台获取数据
-			this.$api.get('../../static/flare.json', {}, r => {
+			this.$api.get('../../static/json/flare.json', {}, r => {
 				console.log(r);
 				if(r.success){
 					this.data = r.data;
