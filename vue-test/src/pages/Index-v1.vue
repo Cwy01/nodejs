@@ -8,8 +8,8 @@
 	<h3>Index<small>/index</small></h3>
 	<hr/>
 		<div class="btn-group" role="group" aria-label="123">
-			<a class="btn btn-default"  @click="toAdd"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> 刷新</a> 
-			<a class="btn btn-default"  @click="toSave"><span class="glyphicon glyphicon-repeat" aria-hidden="true"></span> 保存</a> 
+			<a class="btn btn-default"  @click="toAdd"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> 添加</a> 
+			<a class="btn btn-default"  @click="toSave"><span class="glyphicon glyphicon-repeat" aria-hidden="true"></span> 修改</a> 
 			<a class="btn btn-default"  @click="toRemove"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> 删除</a>
 			<a class="btn btn-default"  @click="toUpdate"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> 更新</a>
 		</div>
@@ -72,7 +72,7 @@ export default {
         }
 	},
 	created(){
-		//this.initialization()
+		this.initialization()
 	},
 	methods: {
 		initialization() {
@@ -84,40 +84,16 @@ export default {
 			})
 		},
 		toAdd(){
-			this.$api.get('get', {page:1,limit:8}, r => {
-				console.log(r);
-				if(r.success){
-					this.tableItem = r.data;
-				}
-			})
-			console.log("刷新");
+			alert("添加");
 		},
 		toSave(){
-			this.$api.post('post', {page:1,limit:8}, r => {
-				console.log(r);
-				if(r.success){
-					this.tableItem = r.data;
-				}
-			})
-			console.log("保存");
+			alert("修改");
 		},
 		toRemove(){
-			this.$api.delete('delete', {page:1,limit:8}, r => {
-				console.log(r);
-				if(r.success){
-					this.tableItem = r.data;
-				}
-			})
-			console.log("删除");
+			alert("删除");
 		},
 		toUpdate(){
-			this.$api.put('put', {page:1,limit:8}, r => {
-				console.log(r);
-				if(r.success){
-					this.tableItem = r.data;
-				}
-			})
-			console.log("更新");
+			alert("更新");
 		}
 	}	
 }

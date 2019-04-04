@@ -22,7 +22,7 @@
 			<div v-if="menu.childs">
 				<div class="menu-list nav nav-pills nav-stacked collapse navbar-collapse panel-default">
 					<li class="hiddenStyle" role="tab" v-bind:id="menu.heading" @click="iconShow(Index)">
-						<a role="button" data-toggle="collapse" data-parent="#accordion" v-bind:href="menu.href" aria-expanded="false" v-bind:aria-controls="menu.collapse">
+						<a role="button" data-toggle="collapse" data-parent="#accordion" v-bind:data-target="menu.target" aria-expanded="false" v-bind:aria-controls="menu.collapse">
 							<span v-bind:class="menu.setClass" class="glyphicon" aria-hidden="true">
 								<transition name="fade">
 									<span v-show="managerShow">{{menu.name}}</span>
@@ -86,7 +86,7 @@ export default{
             },
             menus:[{
                 name:"show",
-                href:"#collapseOne",
+                target:"#collapseOne",
 				heading:"headingOne",
 				collapse:"collapseOne",
 				setClass:"glyphicon-home",
@@ -104,7 +104,7 @@ export default{
                 }]
             },{
                 name:"JqTest",
-                href:"#collapseTwo",
+                target:"#collapseTwo",
 				heading:"headingTwo",
 				collapse:"collapseTwo",
 				setClass:"glyphicon-grain",
@@ -118,7 +118,7 @@ export default{
                 }]
             },{
                 name:"Test3",
-                href:"#collapseThree",
+                target:"#collapseThree",
 				heading:"headingThree",
 				collapse:"collapseThree",
 				setClass:"glyphicon-grain",				
