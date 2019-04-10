@@ -2,14 +2,16 @@
 	<div id="app">
 		<!--自定义组件SystemHeader -->
 		<SystemHeader></SystemHeader>
-			<div class="row">
-				<div @click="statusFun" v-bind:class="{menu2: setMenu ,systemMenu:iconStatusBoolean,systemMenuAdd:!iconStatusBoolean}" class="col-sm-2">
-					<SystemMenu></SystemMenu>{{iconStatusMsg}}
-				</div>
-				<div class="col-sm-10 view"  v-bind:class="{routerView:iconStatusBoolean,routerViewAdd:!iconStatusBoolean}">  
-					<router-view></router-view>
-				</div>	
+			
+			<div @click="statusFun" v-bind:class="{menu2: setMenu ,systemMenu:iconStatusBoolean,systemMenuAdd:!iconStatusBoolean}">
+				<SystemMenu></SystemMenu>
+				<!-- {{iconStatusMsg}} -->
 			</div>
+			
+			<div class="row col-sm-12 view"  v-bind:class="{routerView:iconStatusBoolean,routerViewAdd:!iconStatusBoolean}">
+				<router-view></router-view>
+			</div>
+	
 		<SystemFooter></SystemFooter>
 	</div>
 </template>
@@ -60,50 +62,15 @@ export default {
 </script>
 
 <style>
-.menu2{
-	border:1px solid #e7e7e7;
-	padding-top:30px;
-	padding-bottom:30px;
-	padding-right:0 !important;
-	background-color:#f8f8f8;
-}
-.view{
-	//border:1px solid red;
-	margin-top:20px;
-}
-.row {
-    margin-right: 0px !important;
-}
-.systemMenu{
-	width:5% !important;
-	animation: systemMenuMove .8s;
-}
-.routerView{
-	width: 95% !important;
-	animation: routerViewMove .8s;
-}
-@keyframes systemMenuMove{
-	from {width:16.666%;}
-	to {width:5%;}
-}
-@keyframes routerViewMove{
-	from {width:83.333%;}
-	to {width:95%;}
-}
-.systemMenuAdd{
-	width:16.666% !important;
-	animation: systemMenuAdd .8s;
-}
-.routerViewAdd{
-	width: 83.333% !important;
-	animation: routerViewAdd .8s;
-}
-@keyframes systemMenuAdd{
-	from {width:5%;}
-	to {width:16.666%;}
-}
-@keyframes routerViewAdd{
-	from {width:95%;}
-	to {width:83.333%;}
-}
+.menu2 {border:1px solid #e7e7e7;position:fixed;top:50px;left:0;bottom:0;background-color:#f8f8f8;z-index:1030;}
+.view {float:right;margin-top:20px;}
+.row {margin-right:0px !important;}
+.systemMenu {width:4% !important;animation: systemMenuMove .6s;}
+.routerView {width:96% !important;animation: routerViewMove .6s;}
+@keyframes systemMenuMove {from {width:13%;}to {width:4%;}}
+@keyframes routerViewMove {from {width:87%;}to {width:96%;}}
+.systemMenuAdd {width:13% !important;animation: systemMenuAdd .6s;}
+.routerViewAdd {width:87% !important;animation: routerViewAdd .6s;}
+@keyframes systemMenuAdd {from {width:4%;}to {width:13%;}}
+@keyframes routerViewAdd {from {width:96%;}to {width:87%;}}
 </style>

@@ -3,14 +3,11 @@
 	<div class="menu-head nav nav-pills nav-stacked collapse navbar-collapse" @click="iconStatus">
 		<li  class="hiddenStyle" @click="iconManage">
 			<router-link :to="menuLeft.href">
-				<transition name="fade">
-					<span v-bind:class="[{glyphicon:glyphiconView}, menuLeft.setClass]" aria-hidden="true">
-						<span v-show="managerShow">{{menuLeft.name}}</span>
-					</span>
-				</transition>
+				<span v-bind:class="[{glyphicon:glyphiconView}, menuLeft.setClass]" aria-hidden="true"></span>
 				<transition name="managerFade">
 					<span v-show="managerShow">
-						<span v-bind:class="menuLeft.menuClass" v-bind:style="styleObject" class="glyphicon" aria-hidden="true"></span>
+						{{menuLeft.name}}
+						<span v-bind:class="[{glyphicon:glyphiconView, list:menuLeft.menuView}, menuLeft.menuClass]" aria-hidden="true"></span>
 					</span>
 				</transition>
 			</router-link>
@@ -18,49 +15,42 @@
 	</div>
 	
 	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-		<div v-for="(menu,Index) in menus">
-			<div v-if="menu.childs">
-				<div class="menu-list nav nav-pills nav-stacked collapse navbar-collapse panel-default">
-					<li class="hiddenStyle" role="tab" v-bind:id="menu.heading" @click="iconShow(Index)">
-						<a role="button" data-toggle="collapse" data-parent="#accordion" v-bind:data-target="menu.target" aria-expanded="false" v-bind:aria-controls="menu.collapse">
-							<span v-bind:class="menu.setClass" class="glyphicon" aria-hidden="true">
-								<transition name="fade">
-									<span v-show="managerShow">{{menu.name}}</span>
-								</transition>
+		<div v-for="(menu,Index) in menus" v-if="menu.childs" class="menu-list nav nav-pills nav-stacked collapse navbar-collapse panel">
+			<li class="hiddenStyle" role="tab" v-bind:id="menu.heading" @click="iconShow(Index)">
+				<a role="button" data-toggle="collapse" data-parent="#accordion" v-bind:data-target="menu.target" aria-expanded="false" v-bind:aria-controls="menu.collapse">
+					<span v-bind:class="menu.setClass" class="glyphicon" aria-hidden="true"></span>
+					<transition name="managerFade">
+						<span v-show="managerShow">
+							{{menu.name}}
+							<span v-if="menu.childs">
+								<span v-bind:class="[{glyphicon:glyphiconView, list:menu.menuView}, menu.menuClass]" aria-hidden="true"></span>
 							</span>
+						</span>
+					</transition>
+				</a>
+			</li>
+			<div v-bind:id="menu.collapse" ref="childInfo" class="nav nav-pills nav-stacked panel-collapse collapse" role="tabpanel" v-bind:aria-labelledby="menu.heading">
+				<li class="hiddenStyle" v-for="child in menu.childs">
+					<router-link :to="child.href">
+						<span v-bind:class="child.setClass" class="glyphicon" aria-hidden="true"> </span>
 							<transition name="managerFade">
-								<span v-show="managerShow">
-									<span v-if="menu.childs">
-										<span v-bind:class="[{glyphicon:glyphiconView, list:menu.menuView}, menu.menuClass]" aria-hidden="true"></span>
-									</span>
-								</span>
+								<span v-show="managerShow">{{child.name}}</span>
 							</transition>
-						</a>
-					</li>
-					<div v-bind:id="menu.collapse" class="nav nav-pills nav-stacked panel-collapse collapse" role="tabpanel" v-bind:aria-labelledby="menu.heading">
-						<li class="hiddenStyle" v-for="child in menu.childs">
-							<router-link :to="child.href">
-								<span v-bind:class="child.setClass" class="glyphicon" aria-hidden="true"> 
-									<span v-show="managerShow">{{child.name}}</span>
-								</span>
-							</router-link>
-						</li>
-					</div>	
-				</div>
-			</div>
-			<div v-else>
-				<div class="menu-list nav nav-pills nav-stacked collapse navbar-collapse">
-					<li class="hiddenStyle">
-						<router-link :to="menu.href">
-							<span v-bind:class="menu.setClass" class="glyphicon" aria-hidden="true">
-								<transition name="fade">
-									<span v-show="managerShow">{{menu.name}}</span>
-								</transition>
-							</span>
-						</router-link>
-					</li>
-				</div>
-			</div>
+					</router-link>
+				</li>
+			</div>	
+		</div>
+		
+		
+		<div v-else class="menu-list nav nav-pills nav-stacked collapse navbar-collapse">
+			<li class="hiddenStyle">
+				<router-link :to="menu.href">
+					<span v-bind:class="menu.setClass" class="glyphicon" aria-hidden="true"></span>
+					<transition name="managerFade">
+							<span v-show="managerShow">{{menu.name}}</span>
+						</transition>
+				</router-link>
+			</li>
 		</div>
 	</div>
 	
@@ -75,17 +65,16 @@ export default{
         return {
 			managerShow:true,
 			glyphiconView:true,
-			styleObject: {
-				float:"right",
-			},
 			menuLeft:{
-                name:"list",
+                name:"功能列表",
                 href:"",
-				setClass:"glyphicon-home",
-				menuClass:"glyphicon-menu-left",
+				setClass:"glyphicon-th-list",
+				menuClass:"glyphicon-menu-left list",
+				menuView:true,
+				glyphiconView:true,
             },
             menus:[{
-                name:"show",
+                name:"Home",
                 target:"#collapseOne",
 				heading:"headingOne",
 				collapse:"collapseOne",
@@ -100,68 +89,52 @@ export default{
                 },{
                     name:"Index",
                     href:"/",
-					setClass:"glyphicon-globe"
+					setClass:"glyphicon-leaf"
+                },{
+                    name:"jq",
+					href:"/jq",
+					setClass:"glyphicon-tent",
                 }]
             },{
-                name:"JqTest",
+                name:"Table",
                 target:"#collapseTwo",
 				heading:"headingTwo",
 				collapse:"collapseTwo",
-				setClass:"glyphicon-grain",
+				setClass:"glyphicon-menu-hamburger",
 				menuClass:"glyphicon-menu-down list",
 				menuView:false,
 				glyphiconView:true,
                 childs:[{
-                    name:"jq",
-					href:"/jq",
-					setClass:"glyphicon-grain",
-                }]
+					name:"Table",
+					href:"/tt",
+					setClass:"glyphicon-indent-right",				
+				},{
+					name:"Table+",
+					href:"/tts",
+					setClass:"glyphicon-indent-left",				
+				}]
             },{
-                name:"Test3",
+                name:"Echarts",
                 target:"#collapseThree",
 				heading:"headingThree",
 				collapse:"collapseThree",
-				setClass:"glyphicon-grain",				
+				setClass:"glyphicon-tree-conifer",				
 				menuClass:"glyphicon-menu-down list",
 				menuView:false,
 				glyphiconView:true,
 				childs:[{
-                    name:"Home",
-					href:"/home",
-					setClass:"glyphicon-home",
-                }]
-            },{
-                name:"EchartsTest",
-                href:"/ec",
-				setClass:"glyphicon-grain",				
-				menuClass:"glyphicon-menu-down list",
-				menuView:false,
-				glyphiconView:true,
-            },{
-                name:"TableTest",
-                href:"/tt",
-				setClass:"glyphicon-grain",				
-				menuClass:"glyphicon-menu-down list",
-				menuView:false,
-				glyphiconView:true,
-            },{
-                name:"EchartsTestSec",
-                href:"/ecs",
-				setClass:"glyphicon-grain",				
-				menuClass:"glyphicon-menu-down list",
-				menuView:false,
-				glyphiconView:true,
-            },{
-                name:"TableTestSec",
-                href:"/tts",
-				setClass:"glyphicon-grain",				
-				menuClass:"glyphicon-menu-down list",
-				menuView:false,
-				glyphiconView:true,
+					name:"Echarts",
+					href:"/ec",
+					setClass:"glyphicon-tree-deciduous",				
+				},{
+					name:"Echarts+",
+					href:"/ecs",
+					setClass:"glyphicon-grain",				
+				}]
             },{
                 name:"news",
                 href:"/news/frameHome",
-				setClass:"glyphicon-grain",				
+				setClass:"glyphicon-education",				
 				menuClass:"glyphicon-menu-down list",
 				menuView:false,
 				glyphiconView:true,
@@ -170,28 +143,31 @@ export default{
     }, 
 	methods: {
 		iconShow: function (index) { 
-			//alert(this.menus[index].menuClass);
-			if(this.menus[index].menuView){
-				this.menus[index].menuClass = "glyphicon-menu-down list"; 
-				this.menus[index].menuView = false;
-			}else{
-				this.menus[index].menuClass = "glyphicon-menu-up list"; 
-				this.menus[index].menuView = true;
-			}
+			this.$nextTick(()=>{
+				if(this.$refs.childInfo[index].innerText==""){
+					this.menus[index].menuClass = "glyphicon-menu-up list"; 
+				}else{
+					this.menus[index].menuClass = "glyphicon-menu-down list"; 
+				}
+				
+				this.menus.forEach((menu,menuIndex,arr) => {
+					if(((menu.childs!=null)&&(menuIndex!=index))){
+						menu.menuClass = "glyphicon-menu-down list"; 
+					}
+				});				
+			})	
 		},
 		iconManage: function () { 
 		
 			if(this.managerShow){
 				this.menuLeft.menuClass = "glyphicon-menu-right"; 
 				this.managerShow = false;
-				this.styleObject.float="left";
 				this.menuLeft.setClass ="glyphicon-menu-right";
 				//this.glyphiconView = false;
 			}else{
 				this.menuLeft.menuClass = "glyphicon-menu-left"; 
 				this.managerShow = true;
-				this.styleObject.float="right";
-				this.menuLeft.setClass ="glyphicon-home";
+				this.menuLeft.setClass ="glyphicon-th-list";
 				//this.glyphiconView = true;
 
 			}
@@ -201,7 +177,7 @@ export default{
 	},
 	//监听数据的变化
 	watch: {    
-		//menuOption: 'iconShow'
+		menuOption: 'iconShow'
 	}
 }
 </script>
@@ -214,12 +190,12 @@ export default{
 .hiddenStyle {overflow:hidden;}
 .list {float:right;}
 .nav-pills li a {border-radius: 0px;}
-.fade-enter-active{transition: opacity 1.2s;}
-.fade-leave-active {transition: opacity .5s;}
-.fade-enter, .fade-leave-to {opacity: 0;}
-//.managerFade-enter-active{transition-timing-function: cubic-bezier(5.0, 5.0, 3.0, 0.0);transition-delay: .5s;}
-.managerFade-enter-active{transition-delay: .5s;}
-.managerFade-leave-active {transition: opacity 0s;}
+.panel-group .panel+.panel {margin-top: 0px;}
+.panel {margin-bottom: 0px;background-color: #f8f8f8;border: 0px solid transparent;border-radius: 0px;-webkit-box-shadow: 0 0px 0px rgba(0,0,0,0);}
+
+.managerFade-enter-active{animation: managerFade-in .9s;}
+.managerFade-leave-active {transition: opacity 0s ease 0s;}
 .managerFade-enter {opacity: 0;}
 .managerFade-leave-to {opacity: 0;}
+@Keyframes managerFade-in{0%{ opacity: 0;position: absolute;}70%{opacity: 0;position: relative;}100%{opacity: 1;position: relative;}}
 </style>
