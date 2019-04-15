@@ -61,16 +61,18 @@ export default {
 }
 </script>
 
-<style>
-.menu2 {border:1px solid #e7e7e7;position:fixed;top:50px;left:0;bottom:0;background-color:#f8f8f8;z-index:1030;}
-.view {float:right;margin-top:20px;}
+<style scoped>
+.menu2 {border:1px solid #e7e7e7;position:fixed;top:50px;left:0;bottom:0;background-color:#f8f8f8;z-index:1020;}
+@Media (max-width:768px){.menu2{display:none;}.row {width:100% !important;}}
+.view {margin-top:20px;}
 .row {margin-right:0px !important;}
+.col-sm-12 {float:right !important;}
 .systemMenu {width:4% !important;animation: systemMenuMove .6s;}
 .routerView {width:96% !important;animation: routerViewMove .6s;}
 @keyframes systemMenuMove {from {width:13%;}to {width:4%;}}
 @keyframes routerViewMove {from {width:87%;}to {width:96%;}}
-.systemMenuAdd {width:13% !important;animation: systemMenuAdd .6s;}
-.routerViewAdd {width:87% !important;animation: routerViewAdd .6s;}
+.systemMenuAdd {width:13%;animation: systemMenuAdd .6s;}
+.routerViewAdd {width:87%;animation: routerViewAdd .6s;}
 @keyframes systemMenuAdd {from {width:4%;}to {width:13%;}}
 @keyframes routerViewAdd {from {width:96%;}to {width:87%;}}
 </style>

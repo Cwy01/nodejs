@@ -66,73 +66,37 @@ export default{
 				href:"/"
 			},
             menus:[{
-                name:"展开",
-                href:"#collapseOne",
-				heading:"headingOne",
-				collapse:"collapseOne",
+				name:"Home",
+				href:"/home",
 				setClass:"glyphicon-home",
-				menuClass:"glyphicon-menu-down list",
-				menuView:false,
-                childs:[{
-                    name:"Home",
-					href:"/home",
-					setClass:"glyphicon-home",
-                },{
-                    name:"Index",
-                    href:"/",
-					setClass:"glyphicon-globe"
-                }]
-            },{
-                name:"JqueryTest",
-                href:"#collapseTwo",
-				heading:"headingTwo",
-				collapse:"collapseTwo",
-				setClass:"glyphicon-grain",
-				menuClass:"glyphicon-menu-down list",
-				menuView:false,
-				
-                childs:[{
-                    name:"jq",
-					href:"/jq",
-					setClass:"glyphicon-grain",
-                }]
-            },{
-                name:"headingThree",
-                href:"#collapseThree",
-				heading:"headingThree",
-				collapse:"collapseThree",
+			},{
+				name:"Index",
+				href:"/",
+				setClass:"glyphicon-leaf"
+			},{
+				name:"jq",
+				href:"/jq",
+				setClass:"glyphicon-tent",
+			},{
+				name:"Table",
+				href:"/tt",
+				setClass:"glyphicon-indent-right",				
+			},{
+				name:"Table+",
+				href:"/tts",
+				setClass:"glyphicon-indent-left",				
+			},{
+				name:"Echarts",
+				href:"/ec",
+				setClass:"glyphicon-tree-deciduous",				
+			},{
+				name:"Echarts+",
+				href:"/ecs",
 				setClass:"glyphicon-grain",				
-				menuClass:"glyphicon-menu-down list",
-				menuView:false,
-				childs:[{
-                    name:"Home",
-					href:"/home",
-					setClass:"glyphicon-home",
-                }]
-            },{
-                name:"EchartsTest",
-                href:"/ec",
-				setClass:"glyphicon-grain",				
-				menuClass:"glyphicon-menu-down list",
-				menuView:false,
-            },{
-                name:"TableTest",
-                href:"/tt",
-				setClass:"glyphicon-grain",				
-				menuClass:"glyphicon-menu-down list",
-				menuView:false,
-            },{
-                name:"EchartsTestSec",
-                href:"/ecs",
-				setClass:"glyphicon-grain",				
-				menuClass:"glyphicon-menu-down list",
-				menuView:false,
-            },{
-                name:"TableTestSec",
-                href:"/tts",
-				setClass:"glyphicon-grain",				
-				menuClass:"glyphicon-menu-down list",
-				menuView:false,
+			},{
+                name:"news",
+                href:"/news/frameHome",
+				setClass:"glyphicon-education"			
             }]
         
         }
