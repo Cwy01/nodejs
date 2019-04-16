@@ -4,7 +4,7 @@
 	<h3>EchartsTest<small>/ec</small></h3>
 	<hr/>
 	
-	<div id="myChart"></div>
+	<div class="col-sm-12" id="myChart"></div>
 	
 	</div>
 </template>
@@ -86,7 +86,7 @@ export default {
 <style scoped>
   #myChart{
     color: white;
-	width:400px;
+	//width:400px;
 	height:400px;
   }
 </style>

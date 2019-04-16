@@ -2,7 +2,7 @@
 	<div>
 		<h3>firstFrame<small>/firstFrame</small></h3>
 		<hr/>
-		<div id="myChart"></div>
+		<div class="col-sm-12" id="myChart"></div>
 	</div>
 </template>
 
@@ -76,7 +76,7 @@ export default {
 <style scoped>
 	#myChart{
 		color: white;
-		width:800px;
+		//width:800px;
 		height:400px;
 	}
 </style>

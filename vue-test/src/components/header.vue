@@ -1,5 +1,5 @@
 <template>
-	<nav class="navbar navbar-default navbar-fixed-top">
+	<nav class="headClass navbar navbar-default navbar-fixed-top">
 		<div class="container-fluid">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -106,4 +106,5 @@ export default{
 
 <style>
 body {padding-top: 50px;}
+.headClass {box-shadow: 0 0 5px rgba(0,0,0,0.1);}
 </style>

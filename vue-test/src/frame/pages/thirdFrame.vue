@@ -2,7 +2,7 @@
 	<div>
 		<h3>thirdFrame<small>/thirdFrame</small></h3>
 		<hr/>
-		<div id="myChart"></div>
+		<div class="col-sm-12" id="myChart"></div>
 	</div>
 </template>
 
@@ -46,9 +46,9 @@ export default {
 						type: 'tree',
 						data: this.data,
 						top: '1%',
-						left: '15%',
+						left: '28%',
 						bottom: '1%',
-						right: '20%',
+						right: '28%',
 						symbolSize: 7,
 						label: {
 							normal: {
@@ -93,7 +93,7 @@ export default {
 <style scoped>
 	#myChart{
 		color: white;
-		width:800px;
+		//width:800px;
 		height:400px;
 	}
 </style>
